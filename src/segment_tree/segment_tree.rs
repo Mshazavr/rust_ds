@@ -16,6 +16,25 @@ pub trait SegmentTreeState: Clone + Sized {
     fn compute(&mut self, left_child: &Self, right_child: &Self);
 }
 
+// TODO: use the better trait definition below
+/*
+pub trait SegmentTreeState: Clone + Sized {
+    type ArrayT: Default + Display;
+    type LeafT: Default + Display;
+    type DeltaT;
+    fn reduce(a: Self::LeafT, b: Self::LeafT) -> Self::LeafT;
+    fn new() -> Self;
+    fn new_leaf(element: Self::ArrayT, leaf_pos: usize) -> Self;
+    fn new_with_children(left_child: &Self, right_child: &Self) -> Self;
+    fn get_delta(&self) -> Self::DeltaT;
+    fn update_delta(&mut self, delta: &Self::DeltaT);
+    fn get_value(&self) -> Self::LeafT;
+    fn update_value(&mut self, left_child: &Self, right_child: &Self);
+    fn push(&mut self, left_child: &mut Self, right_child: &mut Self);
+    fn push_leaf(&mut self);
+}
+ */
+
 pub struct SegmentTree<NodeT: SegmentTreeState> {
     node_state: NodeT,
     left_node: Option<Box<SegmentTree<NodeT>>>,

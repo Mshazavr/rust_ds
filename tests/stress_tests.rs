@@ -94,7 +94,7 @@ fn segment_tree_regular() {
     let num_iterations: usize = 1000;
 
     let mut elapsed_times: Vec<Duration> = Vec::new();
-    elapsed_times.reserve((num_iterations+1).try_into().unwrap());
+    elapsed_times.reserve((num_iterations + 1).try_into().unwrap());
 
     for seed in 0..num_iterations {
         let input = gen_test_input(seed.try_into().unwrap(), n, m);
@@ -108,7 +108,7 @@ fn segment_tree_regular() {
 
     println!(
         "Median Elapsed Regular: {:.2?}",
-        elapsed_times[(num_iterations/2) as usize],
+        elapsed_times[(num_iterations / 2) as usize],
     );
 }
 
@@ -119,7 +119,7 @@ fn segment_tree_bump() {
     let num_iterations: usize = 1000;
 
     let mut elapsed_times: Vec<Duration> = Vec::new();
-    elapsed_times.reserve((num_iterations+1).try_into().unwrap());
+    elapsed_times.reserve((num_iterations + 1).try_into().unwrap());
 
     for seed in 0..num_iterations {
         let input = gen_test_input(seed.try_into().unwrap(), n, m);
@@ -133,6 +133,6 @@ fn segment_tree_bump() {
 
     println!(
         "Median Elapsed Bumped: {:.2?}",
-        elapsed_times[(num_iterations/2) as usize]
+        elapsed_times[(num_iterations / 2) as usize]
     );
 }
