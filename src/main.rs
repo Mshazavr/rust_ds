@@ -11,8 +11,7 @@ fn main() {
         ("CCC", "DDD", 2),
         ("CCC", "EEE", 2),
         ("CCC", "FFF", 2),
-        //("AAA1", "BBB1", 1),
-        //("AAA1", "CCC1", 2)
+        //("EEE", "AAA", 2),
     ]
     .map(|(v, w, e)| (v.to_string(), w.to_string(), e));
 
@@ -24,8 +23,20 @@ fn main() {
 
     println!("{}", g.is_tree());
 
-    g.compute_rooted_tree();
-    for node in g.rooted_tree_infos.unwrap().iter() {
-        println!("{:?}", node);
-    }
+    g.compute_rooted_tree(&"AAA".to_string(), true);
+
+    println!(
+        "CCC & BBB ca: {}",
+        g.common_ancestor(&"CCC".to_string(), &"BBB".to_string())
+    );
+    println!(
+        "DDD & FFF ca: {}",
+        g.common_ancestor(&"DDD".to_string(), &"FFF".to_string())
+    );
+    println!(
+        "EEE & BBB ca: {}",
+        g.common_ancestor(&"EEE".to_string(), &"BBB".to_string())
+    );
+
+    println!("{:#?}", g.get_bridges());
 }
