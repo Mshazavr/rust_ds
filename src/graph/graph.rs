@@ -298,7 +298,7 @@ where
 
     pub fn compute_rooted_tree(&mut self, root: &N, include_pow2_ancestors: bool) {
         self._assert_categories(
-            [GraphCategoryBits::TREE_BIT].to_vec(),
+            [GraphCategoryBits::CONNECTED_BIT].to_vec(),
             "compute_rooted_tree",
         );
         let root_id = self.node_map[root];
